@@ -55,7 +55,37 @@ test('renders counter display', () => {
   expect(counterDisplay.length).toBe(1);
 });
 
-test('counter display starts at 0', () => {});
+test('counter display starts at 0', () => {
+  const wrapper = setup();
+  // storing a text from an element instead of an element itself
+  const count = wrapper.find("[data-test='count']").text();
+  // note - text() always returns a String of the current element, so need to compare against the String
+  expect(count).toBe('0');
+});
 
 // here we test functionality
-test('clicking button increments counter', () => {});
+test('clicking button increments counter', () => {
+  const wrapper = setup();
+
+  // find the button
+  const button = wrapper.find("[data-test='increment-button']");
+
+  // click the button
+  // Using .simulate(event[, ...args]) Simulate events on the root node in the wrapper. It must be a single-node wrapper
+  // 1. event (String): The event name to be simulated
+  // 2. ...args (Any [optional]): A mock event object that will get passed through to the event handlers.
+  // note - Simulate ShallowWrapper: Returns itself
+  button.simulate('click');
+
+  // find the display & test number has been incremented
+  const count = wrapper.find("[data-test='count']").text();
+  expect(count).toBe('1');
+});
+
+test('decrements counter on button click', () => {
+  const wrapper = shallow(<App />);
+  const button = wrapper.find("[data-test='decrement-button']");
+  button.simulate('click');
+  const count = wrapper.find("[data-test='count']").text();
+  expect(count).toBe('-1');
+});

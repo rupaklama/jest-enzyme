@@ -4,14 +4,14 @@ import Enzyme, { shallow } from 'enzyme';
 // to help translate react code into Enzyme code
 import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17';
 
-import App from './App';
+import Basic from './Basic';
 
 // configure enzyme
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 // to keep code DRY
 // custom factory function to create a ShallowWrapper for the App component
-const setup = () => shallow(<App />);
+const setup = () => shallow(<Basic />);
 
 test('renders non-empty component without error', () => {
   // note - Shallow render only renders Parent component but not Child components
@@ -83,7 +83,7 @@ test('clicking button increments counter', () => {
 });
 
 test('decrements counter on button click', () => {
-  const wrapper = shallow(<App />);
+  const wrapper = shallow(<Basic />);
   const button = wrapper.find("[data-test='decrement-button']");
   button.simulate('click');
   const count = wrapper.find("[data-test='count']").text();

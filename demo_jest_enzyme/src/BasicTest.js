@@ -1,10 +1,10 @@
 // Enzyme creates a virtual dom & provides rendering methods for Unit/Integration Testing
 import Enzyme, { shallow } from 'enzyme';
 
+import Basic from './Basic';
+
 // to help translate react code into Enzyme code
 import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17';
-
-import Basic from './Basic';
 
 // configure enzyme
 Enzyme.configure({ adapter: new EnzymeAdapter() });

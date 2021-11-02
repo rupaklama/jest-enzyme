@@ -7,7 +7,6 @@ import Congrats from './Congrats';
 // default props in our component
 const defaultProps = { success: false };
 
-// Since Congrats component takes props - default prop is set to empty object
 const setup = (props = {}) => {
   // passing default props first & to pass additional custom props optionally into our Shallow Component
   // note - the props order matters here

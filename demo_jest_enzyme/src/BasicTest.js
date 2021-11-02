@@ -14,7 +14,7 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 const setup = () => shallow(<Basic />);
 
 test('renders non-empty component without error', () => {
-  // note - Shallow render only renders Parent component but not Child components
+  // note - Shallow only renders Parent component but not the Child components
   // Shallow takes JSX & returns shallow wrapper component - output of shallow rendering
   // const wrapper = shallow(<App />);
   const wrapper = setup();

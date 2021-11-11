@@ -11,9 +11,15 @@ const setup = (props = {}) => {
   return shallow(<Input {...setupProps} />);
 };
 
-test('results no error with expected props', () => {
-  const propError = checkPropTypes(Input.propTypes, defaultProps, 'prop', Input.name);
-  expect(propError).toBeUndefined();
+describe('render', () => {
+  describe('success is true', () => {
+    test('results no error with expected props', () => {
+      const propError = checkPropTypes(Input.propTypes, defaultProps, 'prop', Input.name);
+      expect(propError).toBeUndefined();
+    });
+  });
+
+  describe('success is false', () => {});
 });
 
 describe('input component initial render', () => {
@@ -25,6 +31,18 @@ describe('input component initial render', () => {
 });
 
 describe('input field value in component state', () => {
+  let mockSetCurrentGuess;
+  let wrapper;
+
+  beforeEach(() => {
+    // mock setter func in useState
+    mockSetCurrentGuess = jest.fn();
+    React.useState = jest.fn(() => ['', mockSetCurrentGuess]);
+
+    // shallow wrapper component
+    wrapper = setup();
+  });
+
   test('state updates with value of input box upon change', () => {
     // mocking setter func 'setCurrentGuess' in useState
     // now when executing our component, jest will run this mock func instead of actual Setter Func
@@ -47,5 +65,19 @@ describe('input field value in component state', () => {
 
     // mock setter func call with this value
     expect(mockSetCurrentGuess).toHaveBeenCalledWith('train');
+  });
+
+  test('input field is clear upon clicking submit button', () => {
+    // spy mock function for setCurrentGuess to see whether it ran
+    // so that we can pass value in the state
+    // const mockSetCurrentGuess = jest.fn();
+    // React.useState = jest.fn(() => ['', mockSetCurrentGuess]);
+
+    // const wrapper = setup();
+    const submitButton = wrapper.find("[data-test='submit-button']");
+    submitButton.simulate('click');
+
+    // setter func call with ''
+    expect(mockSetCurrentGuess).toHaveBeenCalledWith('');
   });
 });

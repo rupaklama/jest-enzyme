@@ -2,18 +2,17 @@ import Congrats from './Congrats';
 import GuessedWords from './GuessedWords';
 import Input from './Input';
 
-const guessedWords = [
-  { guessedWord: 'train', letterMatchCount: 3 },
-  { guessedWord: 'agile', letterMatchCount: 1 },
-  { guessedWord: 'party', letterMatchCount: 5 },
-];
-
 function App() {
+  // TODO: data will come through context api
+  const success = false;
+  const secretWord = 'party';
+  const guessedWords = [];
+
   return (
-    <main>
+    <main data-test='component-app'>
       <h1>Jotto - Guess the Word ?</h1>
-      <Input secretWord='party' />
-      <Congrats success={true} />
+      <Input secretWord={secretWord} />
+      <Congrats success={success} />
       <GuessedWords guessedWords={guessedWords} />
     </main>
   );

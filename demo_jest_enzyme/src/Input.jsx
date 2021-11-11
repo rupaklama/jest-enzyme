@@ -22,7 +22,7 @@ const Input = ({ secretWord }) => {
           data-test='input-box'
           placeholder='enter guess'
         />
-        <input type='submit' data-test='submit-button' />
+        <input type='submit' data-test='submit-button' onClick={() => setCurrentGuess('')} />
       </form>
     </div>
   );

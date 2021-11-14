@@ -1,9 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`rendering should render App component correctly 1`] = `
 <main>
   <h2>
-    Snapshot Testing
+    Snapshot
   </h2>
+  <Component
+    text="Child One"
+  />
+  <Component
+    text="Child Two"
+  />
 </main>
+`;
+
+exports[`rendering should render App component correctly 2`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
 `;

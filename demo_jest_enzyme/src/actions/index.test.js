@@ -5,7 +5,7 @@ import { getSecretWord } from './';
 describe('getSecretWord', () => {
   beforeEach(() => {
     // calling moxios install
-    // this wll tell axios to send request to moxios instead to real server
+    // this will tell axios to send request to moxios instead to real server
     moxios.install();
   });
 

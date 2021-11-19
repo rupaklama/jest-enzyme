@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { toMatchDiffSnapshot } from 'snapshot-diff';
 
-import App from './App';
+import Basic from './Basic';
 import ChildOne from './ChildOne';
 import ChildTwo from './ChildTwo';
 
@@ -23,9 +23,9 @@ jest.mock('./ChildTwo', () => () => 'ChildTwo');
 describe('rendering', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = shallow(<Basic />);
   });
-  test('should render App component correctly', () => {
+  test('should render Basic component correctly', () => {
     // toJson is for Clean and readable output
     // Remember to always check the output of your snapshots, they need to be easy to read and understand
     const component = toJson(wrapper);

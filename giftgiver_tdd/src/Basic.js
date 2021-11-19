@@ -1,7 +1,7 @@
 import ChildOne from './ChildOne';
 import ChildTwo from './ChildTwo';
 
-const App = () => {
+const Basic = () => {
   return (
     <main>
       <h2>Snapshot</h2>
@@ -12,4 +12,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Basic;

@@ -6,7 +6,9 @@ import GuessedWords from "./GuessedWords";
 import Input from "./Input";
 
 import { getSecretWord } from "./actions";
+
 import LanguagePicker from "./LanguagePicker";
+import languageContext from "./context/languageContext";
 
 // using useReducer hook here
 const initialState = {

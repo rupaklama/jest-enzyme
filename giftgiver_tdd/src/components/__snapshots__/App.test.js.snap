@@ -1,14 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering should render component correctly 1`] = `
+exports[`app renders correctly 1`] = `
 <div>
   <h2>
     Gift Giver
   </h2>
+  <div
+    className="gift-list"
+  />
+  <Button
+    active={false}
+    className="btn-add"
+    disabled={false}
+    onClick={[Function]}
+    variant="primary"
+  >
+    Add Gift
+  </Button>
 </div>
-`;
-
-exports[`rendering should render component correctly 2`] = `
-"Snapshot Diff:
-Compared values have no visual difference."
 `;
